@@ -22,7 +22,7 @@ COPY web/. ./
 RUN npm run build
 
 # --- 2. Resolve Python deps + install package -------------------------------
-FROM python:3.12-slim AS py-builder
+FROM python:3.14-slim AS py-builder
 ENV PIP_NO_CACHE_DIR=1 PYTHONDONTWRITEBYTECODE=1
 RUN apt-get update && \
     apt-get install -y --no-install-recommends build-essential libpq-dev curl && \
@@ -37,7 +37,7 @@ RUN uv sync --no-dev --frozen --no-install-project && \
     uv pip install --no-deps -e .
 
 # --- 3a. Light runtime — API + worker + web (no embedded data services) -----
-FROM python:3.12-slim AS light
+FROM python:3.14-slim AS light
 ENV PYTHONUNBUFFERED=1 \
     PATH="/app/.venv/bin:$PATH" \
     APP_ENV=prod \
