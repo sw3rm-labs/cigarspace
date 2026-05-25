@@ -14,7 +14,7 @@
 #     -t cigarspace:demo .
 
 # --- 1. Build the SPA --------------------------------------------------------
-FROM node:20-alpine AS web-builder
+FROM node:26-alpine AS web-builder
 WORKDIR /web
 COPY web/package.json web/package-lock.json* ./
 RUN npm install --no-audit --no-fund
