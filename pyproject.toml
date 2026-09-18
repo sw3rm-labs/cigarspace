@@ -19,7 +19,7 @@ classifiers = [
 
 dependencies = [
     "pydantic>=2.6,<3",
-    "pydantic-settings>=2.2,<3",
+    "pydantic-settings>=2.14.2,<3",
     "sqlalchemy[asyncio]>=2.0.27,<3",
     "asyncpg>=0.29,<1",
     "alembic>=1.13,<2",
